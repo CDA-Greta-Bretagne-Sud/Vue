@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Mon 2er exercice</title>
+  <script src="https://unpkg.com/vue@2"></script>
+</head>
+<body>
+<!-- Balise racine de l'application : --> 
+<!-- le DOM va être lié à Vue.js pour faire du rendu dynamique -->
+<style>
+    .app-10-basic{
+        background: black;
+        height: auto;
+    }
+    .app-10-higlight{
+        color: greenyellow;
+        font-weight: bolder;
+    }
+    .biiig{
+        font-size: 2em;
+        text-transform: capitalize;
+    }
+</style>
+  <div id="app">
+    <fieldset>
+        <legend>Class Tester</legend>
+        <div style="display: flex ; flex-direction: row ;">
+            <div class="form-group">
+                <label class="form-check-label" for="app-10-c1">Hilighted</label>&nbsp;
+                <input v-model="hilighted" 
+                       type="checkbox" class="form-check-input" id="app-10-c1">
+            </div> 
+            <div style="width: 50px"></div>
+            <div class="form-group">
+                <label class="form-check-label" for="app-10-c2">Big</label>&nbsp;
+                <input v-model="big" 
+                       type="checkbox" class="form-check-input" id="app-10-c2">
+            </div>
+        </div>
+    </fieldset>
+    
+    // Les valeurs de hilighted et big déterminent l'application des classes CSS
+    <div :class="{ 'app-10-higlight': hilighted, biiig: big }"   
+         class="app-10-basic form-control">
+         Un div qui a du style ! 
+    </div>
+  </div>
+<!-- Script déclarant les données et méthodes de l'application -->
+  <script>
+   
+    let app = new Vue({
+      el: '#app',
+      data(){ return {
+        hilighted: true, 
+        big: false, 
+    }}
+    })
+  </script>
+</body>
+</html>
+
+

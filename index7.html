@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Mon 2er exercice</title>
+  <script src="https://unpkg.com/vue@2"></script>
+</head>
+<body>
+<!-- Balise racine de l'application : --> 
+<!-- le DOM va être lié à Vue.js pour faire du rendu dynamique -->
+  <div id="app">
+    <form style="display: flex">
+        <label class="form-check-label" for="app-06-check">Visible</label>&nbsp;
+        
+        <input v-model="visible" type="checkbox" @click="Visibility" class="form-check-input" id="app-check"> 
+    </form> 
+    
+    <div v-if="visible" style="margin: 10px 0 ; background: greenyellow">
+        Ce div va disparaître...
+    </div>
+  </div>
+<!-- Script déclarant les données et méthodes de l'application -->
+  <script>
+    let app = new Vue({
+      el: '#app',
+      data(){
+        return {
+        visible: true
+        }
+    } 
+    })
+  </script>
+</body>
+</html>
+
+

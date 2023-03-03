@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Mon 2er exercice</title>
+  <script src="https://unpkg.com/vue@2"></script>
+</head>
+<body>
+<!-- Balise racine de l'application : --> 
+<!-- le DOM va être lié à Vue.js pour faire du rendu dynamique -->
+  <div id="app">
+    <input type="text" v-model="txt" placeholder="votre texte ici">
+    
+    <div style="margin: 10px 0 ; border-radius: 3px ; padding: 5px ; background: black ; color: greenyellow">
+        <fieldset>
+            <legend style="color: greenyellow">Style Monochrome</legend>
+            <table>
+                <tr>
+                    <td>original   </td><td>&nbsp; &gt; </td>
+                    <td>&nbsp; {{ txt }}</td>
+                </tr>
+                <tr>
+                    <td>upper-case </td><td>&nbsp; &gt; </td>
+                    <td>&nbsp; {{ txt.toUpperCase() }}</td>
+                </tr>
+                <tr>
+                    <td>lower-case </td><td>&nbsp; &gt; </td>
+                    <td>&nbsp; {{ txt.toLowerCase() }}</td>
+                </tr>
+                <tr><td>reverse   </td><td>&nbsp; &gt; </td>
+                    <td>&nbsp; {{ txt.split('').reverse().join('') }}</td>
+                </tr>
+            </table>
+        </fieldset>
+    </div>
+    
+    <div><button @click="effacer">Effacer</button></div>
+  </div>
+<!-- Script déclarant les données et méthodes de l'application -->
+  <script>
+    let app = new Vue({
+      el: '#app',
+      data: {
+	    txt: ''
+      },
+      methods: {
+        effacer(){
+            this.txt = ''
+            }
+      }
+    })
+  </script>
+</body>
+</html>
+
+

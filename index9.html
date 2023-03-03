@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Mon 2er exercice</title>
+  <script src="https://unpkg.com/vue@2"></script>
+</head>
+<body>
+<!-- Balise racine de l'application : --> 
+<!-- le DOM va être lié à Vue.js pour faire du rendu dynamique -->
+  <div id="app">
+    <fieldset>
+        <legend>Global Style Tester</legend>
+        <div style="display: flex ; align-items: center">
+            <input v-model="custom_style" 
+                type="text" class="form-control input-sm"
+                placeholder="Enter style here"
+            >
+            &nbsp;
+            <button @click="custom_style = ''" class="btn btn-warning">Clear</button>
+        </div>
+    </fieldset>
+    <br>
+    <div v-bind:style="custom_style">Un div qui a du style grâce à "v-bind"</i></div>
+    <br>
+    <div :style="custom_style">Un div qui a du style grâce à ":"</div>
+
+  </div>
+<!-- Script déclarant les données et méthodes de l'application -->
+  <script>
+   
+    let app = new Vue({
+      el: '#app',
+      data(){ return {
+        custom_style: 'padding: 10px ; background: black ; color: greenyellow ;'
+    }}
+    })
+  </script>
+</body>
+</html>
+
+

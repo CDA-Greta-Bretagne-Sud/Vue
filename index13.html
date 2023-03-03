@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Mon 13e exercice</title>
+  <script src="https://unpkg.com/vue@2"></script>
+<style>
+    .form-group{
+        display: flex;
+        align-items: center;
+    }
+    label{
+        margin-right: 1em;
+    }
+</style>
+</head>
+
+<body>
+<!-- Balise racine de l'application : --> 
+<!-- le DOM va être lié à Vue.js pour faire du rendu dynamique -->
+
+  <div id="app">
+    <div class="form-group">
+        <label>g</label>
+        <input v-model="g" type="number" class="form-control">
+    </div>
+
+    <div class="form-group">
+        <label>Kg</label>
+        <input v-model="kg" type="number" class="form-control">
+    </div>
+
+    <div style="height: 6em ; border: 1px solid lightgrey">
+        <div id="msg" style="font-size: 4em ;">
+            {{ conclusion }}
+        </div>
+    </div>
+</div>
+<!-- Script déclarant les données et méthodes de l'application -->
+  <script>
+    let app = new Vue({
+      el: '#app',
+      data(){ return{
+            g: '',
+            kg: ''
+        }},
+        computed:{
+          conclusion(){
+              return this.kg < 100 ? "Trop léger..." : "Wow, c'est lourd !"
+          }
+        },
+        watch: {
+            kg: function (newValue, oldValue){ // un watcher
+                this.g = newValue * 1000
+                console.log("g changé: "+ newValue)
+            },
+            g: function (newValue){ // une autre manière de l'écrire
+                this.kg = newValue/1000
+                console.log("kg changé :"+ newValue)
+            },
+            conclusion(newValue, oldValue) { // ... et encore une autre
+                console.log("changé :"+ newValue)
+              
+            }
+        }
+    })
+  </script>
+</body>
+</html>
+
+

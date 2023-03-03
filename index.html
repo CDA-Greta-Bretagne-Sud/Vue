@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Mon 1er exercice</title>
+  <script src="https://unpkg.com/vue@2"></script>
+</head>
+<body>
+<!-- Balise racine de l'application : --> 
+<!-- le DOM va être lié à Vue.js pour faire du rendu dynamique -->
+  <div id="app">
+    <div>{{mirroir(message1)}}</div>
+	<br>
+  <div>{{mirroir(message2)}}</div>
+  </div>
+<!-- Script déclarant les données et méthodes de l'application -->
+  <script>
+    let app = new Vue({
+      el: '#app',
+      data: {
+	    message1: 'Hello Vue! ',
+      message2: 'Un Framework pour le front!',
+      },
+      methods: {
+          decoration(txt){
+             return "<!!!!!!!!!!>" + txt + " </!!!!!!!!!!>" 
+          },
+          mirroir(txt){
+              txt = txt.split('').reverse().join('')
+              txt = this.decoration(txt)
+              return txt
+          }
+      }
+    })
+  </script>
+</body>
+</html>
+
+

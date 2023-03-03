@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Mon 2er exercice</title>
+  <script src="https://unpkg.com/vue@2"></script>
+</head>
+<body>
+<!-- Balise racine de l'application : --> 
+<!-- le DOM va être lié à Vue.js pour faire du rendu dynamique -->
+  <div id="app">
+    Weather Forecasts : 
+    <ul>
+        <li v-for="(fc, index) in forecasts">
+            (day {{index+1}}) <b>{{ fc.day }} :</b> <i>{{ fc.weather}}</i>
+        </li>
+    </ul>
+    <button class="btn btn-primary" @click="calm_down">calm down</button>
+</div>
+
+  </div>
+<!-- Script déclarant les données et méthodes de l'application -->
+  <script>
+    const weather_forecasts = [
+    { day: 'monday', weather: 'sun'},
+    { day: 'tuesday', weather: 'clouds'},
+    { day: 'wednesday', weather: 'rain'},
+    { day: 'friday', weather: 'storm'},
+    { day: 'thursday', weather: 'ice'},
+    { day: 'saturday', weather: 'snow'},
+    { day: 'sunday', weather: 'armageddon'},
+]
+    let app = new Vue({
+      el: '#app',
+      data(){ return {
+        forecasts: weather_forecasts
+    }},
+      methods: {
+        calm_down(){
+            console.log(this.forecasts.length)
+            this.forecasts[this.forecasts.length-1].weather = 'SUUUUNNNNNNYYYY !'
+        }
+      }
+    })
+  </script>
+</body>
+</html>
+
+
