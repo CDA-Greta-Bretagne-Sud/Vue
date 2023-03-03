@@ -31,11 +31,41 @@
   <post-it bg="lightblue">
     Anniversaire de brigitte <!-- contenu inséré dans le template du composant -->
   </post-it>
+<!-- vuetify-->
+<input type="text" v-model="txt" placeholder="Tapez notre nom">
+  <v-card
+    class="mx-auto"
+    max-width="344"
+  >
+  <v-card-title>
+  <p class="text-h4 text--primary" >
+        {{ txt.toUpperCase() }}
+      </p>
+  </v-card-title>
+    <v-card-subtitle>
+ <p v-show='txt'>Nom : {{ txt.toUpperCase() }}</p>
+      </v-card-subtitle>
+    <v-card-text v-show='txt'>  
 
+      Email: {{ txt.toLowerCase() }}@gmail.com
+
+    </v-card-text>
+    <v-card-item v-show='txt'>
+      Fiche de {{ txt.toLowerCase() }}
+    </v-card-item>
+  </v-card>
+<hr>
+
+<v-btn> Button </v-btn>
+<v-btn color="primary"> Button </v-btn>
+<v-btn color="secondary"> Button </v-btn>
+<v-btn color="error"> Button </v-btn>
+<v-btn color="warning"> Button </v-btn>
+<v-btn color="success"> Button </v-btn>
+<v-btn color="black"> Button </v-btn>
 </template>
 
 <script>
-
 import exempleComposant from './components/ExempleComposant.vue'
 import smp_card from "@/components/Card.vue";
 import composantfils from "@/components/Composant2.vue";
@@ -54,7 +84,8 @@ export default {
     userName: 'Pascal',
     server: 'gmail.com',
     globalName: 'pascal',
-    text: ''
+    text: '',
+     txt: ''
   }},
     methods:{
     updateText(txt){
