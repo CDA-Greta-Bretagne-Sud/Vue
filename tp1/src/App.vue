@@ -31,7 +31,7 @@
   <post-it bg="lightblue">
     Anniversaire de brigitte <!-- contenu inséré dans le template du composant -->
   </post-it>
-<!-- vuetify-->
+<!-- exercice1-->
 <input type="text" v-model="txt" placeholder="Tapez notre nom">
   <v-card
     class="mx-auto"
@@ -55,6 +55,35 @@
     </v-card-item>
   </v-card>
 <hr>
+<br>
+<!-- exercice2-->
+<exercice-2/>
+<v-table>
+    <thead>
+      <tr>
+        <th></th>
+        <th class="text-left">
+          Country
+        </th>
+        <th class="text-left">
+         Calling Code
+        </th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr
+        v-for="(item,index) in pays"
+        :key="item.name"
+      >
+      <td>{{index}}</td>
+        <td>{{ item.name }}</td>
+        <td>{{ item.callingCodes[0] }}</td>
+      </tr>
+    </tbody>
+  </v-table>
+
+<br>
+
 
 <v-btn> Button </v-btn>
 <v-btn color="primary"> Button </v-btn>
@@ -70,7 +99,9 @@ import exempleComposant from './components/ExempleComposant.vue'
 import smp_card from "@/components/Card.vue";
 import composantfils from "@/components/Composant2.vue";
 import composantext from "@/components/Composant3.vue";
+import exercice2 from "@/components/exercice2.vue";
 import PostIt from "@/components/PostIt.vue";
+
 export default {
   name: 'App',
   components: {
@@ -78,7 +109,8 @@ export default {
     smp_card,
     card:composantfils,
     TextForm: composantext,
-    PostIt
+    PostIt,
+    exercice2
   },
   data(){ return {
     userName: 'Pascal',
