@@ -1,0 +1,11 @@
+.carre{
+    width: 300px;
+    height: 300px;
+    margin: auto;
+    border: 1px solid black;
+    background: lightskyblue;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 2em;
+}
