@@ -22,6 +22,21 @@
       </tr>
     </tbody>
   </v-table>
+          <fieldset>
+            <legend>Editor</legend>
+            <div class="form-group">
+
+                <select v-model="selectCountry" class="form-control custom-select"  >
+                    
+                    <option v-bind:value="fc"  v-for="fc in pays" :key="fc.name" >
+                        {{fc.name}}
+                    </option>
+                   
+                </select>
+                <input type="text" v-bind:value="selectCountry.callingCodes">
+            </div>
+
+        </fieldset>
 </template>
 
 <script>
@@ -29,7 +44,8 @@ import { countries } from "../js/countries.js";
 export default {
   name: "ExerCice2",
   data(){return{
-     pays: countries
+     pays: countries,
+      selectCountry: {}
   } 
 }
 }
